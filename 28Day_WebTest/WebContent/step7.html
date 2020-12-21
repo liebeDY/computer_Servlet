@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script>
+function friendCheck() {
+	var genderTxt = document.friendForm.gender
+	var friendTxt = document.friendForm.friend
+	var kostaTxt = document.friendForm.kosta
+	var flag = true
+	for(i = 0; i < genderTxt.length; i++) {
+		if (genderTxt[i].checked) {
+			flag = false
+			break
+		}
+	}
+	if (flag) {
+		alert("성별을 입력하세요")
+		return false
+	}
+	
+	var flag2 = true
+	for(i = 0; i < friendTxt.length; i++) {
+		if (friendTxt[i].checked) {
+			flag2 = false
+			break
+		}
+	}
+	if (flag2) {
+		alert("사진을 체크하세요")
+		return false
+	}
+	
+	if(kostaTxt.value == "") {
+		alert('빈공간이 존재합니다')
+		kostaTxt.value = ""
+		kostaTxt.focus()
+		return false
+	}
+	var flag1 = window.isNaN(kostaTxt.value)
+	if (flag1) {
+		alert('숫자를 입력하세요')
+		return false		
+	}
+	
+	
+	
+}
+</script>
+</head>
+<body>
+
+<form method="get" action="MultiServlet" name="friendForm"
+onsubmit="return friendCheck()">
+
+<input type="radio" name="gender" value="남">남 <br>
+<input type="radio" name="gender" value="여">여 <br>
+기수 : 
+<input type="text" name="kosta"> <br>
+
+<input type="checkbox" name="friend" value="a">AAA <br>
+<input type="checkbox" name="friend" value="b">BBB <br>
+<input type="checkbox" name="friend" value="c">CCC <br>
+
+<input type="submit" value="전송">
+</form>
+
+
+
+</body>
+</html>

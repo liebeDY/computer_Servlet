@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+function check() {
+	var ag = document.angelForm.angel
+	var flag = true
+	for (i = 0; i < ag.length; i++) {
+		if(ag[i].checked) {
+			flag= false
+			break
+		}
+	}
+	if (flag) {
+		alert("빈공간이 존재합니다")
+		return false
+	}
+}
+
+</script>
+</head>
+<body>
+당신이 좋아하는 것은?<br>
+<form method="get" action="RadioServlet" name="angelForm"
+onsubmit="return check()">
+
+<input type="radio" name="angel" value="a">a <br>
+<input type="radio" name="angel" value="b">b <br>
+<input type="radio" name="angel" value="c">c <br>
+<input type="submit" value="찜하기">
+
+</form>
+
+
+
+
+</body>
+</html>

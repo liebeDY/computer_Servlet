@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script>
+
+function checkSelect() {
+	var friendNameTxt = document.selectForm.friend
+	if (friendNameTxt.value == ""){
+		alert('빈공간이 존재합니다')
+		friendNameTxt.value =""
+		friendNameTxt.focus()
+		return false
+	} 
+	
+}
+</script>
+
+
+</head>
+<body>
+
+
+
+<form method="get" action="SelectServlet" name="selectForm"
+onsubmit="return checkSelect()">
+
+<select name="friend">
+	<option value="">--------</option>
+	<option value="a">A</option>
+	<option value="b">B</option>
+	<option value="c">C</option>
+</select>
+<input type="submit" value="선택!">/
+
+
+
+</form>
+	
+</body>
+</html>
