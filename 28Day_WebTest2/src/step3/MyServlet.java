@@ -87,20 +87,22 @@ public class MyServlet extends HttpServlet {
 		}
 		
 		// Map으로 
-		Map<String, String[]> map = request.getParameterMap();
-		Set<String> set = map.keySet();
-		Iterator<String> it = set.iterator();
-		String str = null;
-		String str1[];
 		out.print("<h3>Map으로 검색해서 출력</h3>");
+		Map<String, String[]> map = request.getParameterMap();
+		Iterator<String> it = map.keySet().iterator();
 		while (it.hasNext()) {
-			str = it.next();
-			str1 = map.get(str);
-			
-			for (int i = 0; i < str1.length; i++) {
-				out.print(str + " : " + str1[i]);
+			String name = it.next();
+			String values [] = map.get(name);
+
+			if (values.length == 1) {
+				String value = values[0];
+				out.print(name + " : " + value + "<br>");
+			} else {
+				for (int i = 0; i < values.length; i++) {
+					out.print(name + " : " + values[i] + "<br>");
+				}
 			}
-			out.print("<br>");
+			out.print("</body></html>");
 		}
 	}
 
