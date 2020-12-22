@@ -29,31 +29,31 @@ public class MyServlet6 extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// request 객체에 정보 저장
-		// 현재 요청에 대한 응답이 전달되기 전까지 유효
-		request.setAttribute("requestInfo", "test1");
-		
-		// 현재 session 객체 획득
-		HttpSession session = request.getSession();
-		
-		// session 에 정보 저장
-		// 클라이언트와 연결이 끊길 때까지 유효
-		session.setAttribute("sessionInfo", "test2");
-		
-		// ServletContext 객체 획득, 어플리케이션 전체에 대한 정보 공유
-		ServletContext application = getServletContext();
-		
-		// application 객체에 저장
-		// 이 어플리케이션이 종료할 때까지 모든 파일이 공유
-		application.setAttribute("applicationInfo", "test3");
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/MyServlet7");
-		
-		if (dispatcher != null) {
-			dispatcher.forward(request, response);
-		}
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	// request 객체에 정보 저장
+// 현재 요청에 대한 응답이 전달되기 전까지 유효
+request.setAttribute("requestInfo", "test1");
+
+// 현재 session 객체 획득
+HttpSession session = request.getSession();
+
+// session 에 정보 저장
+// 클라이언트와 연결이 끊길 때까지 유효
+session.setAttribute("sessionInfo", "test2");
+
+// ServletContext 객체 획득, 어플리케이션 전체에 대한 정보 공유
+ServletContext application = getServletContext();
+
+// application 객체에 저장
+// 이 어플리케이션이 종료할 때까지 모든 파일이 공유
+application.setAttribute("applicationInfo", "test3");
+
+RequestDispatcher dispatcher = request.getRequestDispatcher("/MyServlet7");
+	
+	if (dispatcher != null) {
+		dispatcher.forward(request, response);
 	}
+}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
