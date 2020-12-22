@@ -35,7 +35,7 @@ public class ShopServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession(false);
 		
-		if (session == null || session.getAttribute("userName") == null) {
+		if (session == null || session.getAttribute("userName") != null) {
 			String user = (String) session.getAttribute("userName");
 			out.println(user + " 님 쇼핑몰 입장 환영");
 		} else {
