@@ -114,8 +114,6 @@ public class MemberDao {
 				list.add(new MemberVO(id, pass, rs.getString(1), rs.getString(2)));
 			}
 			
-			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -123,7 +121,4 @@ public class MemberDao {
 		}
 		return list;
 	}
-	
-	
-	
 }
