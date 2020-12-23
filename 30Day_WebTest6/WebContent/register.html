@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+function checkRegister() {
+	var r = document.registerForm
+	
+	if (r.userId.value == "") {
+		alert("아이디를 입력하세요")
+		r.userId.focus()
+		return false
+	} else if (r.userPass.value == "") {
+		alert("패스워드를 입력하세요")
+		r.userPass.focus()
+		return false
+	} else if (r.userName.value == "") {
+		alert("이름을 입력하세요")
+		r.userName.focus
+		return false
+	} else if (r.userAddr.value == "") {
+		alert("주소를 입력하세요")
+		r.userAddr.focus
+		return false
+	}
+}
+</script>
+</head>
+<body>
+
+<form action="RegisterServlet" method="post" name="registerForm"
+onsubmit="return checkRegister()">
+아이디 : 
+<input type="text" name="userId"> <br>
+패스워드 : 
+<input type="password" name="userPass"> <br><br>
+이름 : 
+<input type="text" name="userName"> <br><br>
+주소 : 
+<input type="text" name="userAddr"> <br><br>
+<input type="submit" value="회원가입">
+</form>
+
+
+</body>
+</html>
