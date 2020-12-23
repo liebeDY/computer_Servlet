@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script>
+function checkInsert(r) {
+	if (r.pname.value == "") {
+		alert('상품명을 입력하세요')
+		r.pname.value = ""
+		r.pname.focus()
+		return false
+	} else if (r.pmaker.value == "") {
+		alert('제조사를 입력하세요')
+		r.pmaker.value = ""
+		r.pmaker.focus()
+		return false
+	} else if (r.pprice.value == null) {
+		alert('가격을 입력하세요')
+		r.pmaker.value = ""
+		r.pmaker.focus()
+		return false
+	} else if (r.pdetail.value == "") {
+		alert('상세정보를 입력하세요')
+		r.pmaker.value = ""
+		r.pmaker.focus()
+		return false
+	}
+	r.submit()
+}
+
+
+</script>
+</head>
+<body>
+
+<form action="InputServlet" method="post">
+<table>
+	<tr>
+		<td>상품명 : <input type="text" name="pname"> </td>
+	</tr>
+	
+	<tr>
+		<td>제조사 : <input type="text" name="pmaker"> </td>
+	</tr>
+	
+	<tr>
+		<td>가격 : <input type="text" name="pprice"> </td>
+	</tr>
+	
+	<tr>
+		<td>상세정보 : <textarea rows="5" cols="50" name="pdetail"></textarea> </td>
+	</tr>
+	
+	<tr>
+		<td><input type="button" onclick="checkInsert(this.form)" value="상품입력"> </td>
+	</tr>
+</table>
+</form>
+
+
+
+
+</body>
+</html>
