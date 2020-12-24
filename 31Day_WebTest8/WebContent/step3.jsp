@@ -7,21 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3>footer</h3>
 
-
-<h3>hello jsp!</h3>
-<!--JSP 주석 -->
-<%
-// 자바 주석
-int i;
-for (i = 1; i < 6; i++) {
-
-%>
-
-<h<%=i %>>hello</h<%=i %>>
-
-<%
-}
-%>
 </body>
 </html>
