@@ -11,7 +11,7 @@
 <%!
 	private String name = "¼Õ¿¬Àç";
 	public int getAge() {
-		return 19;
+		return 19; 
 	}
 %>
 
