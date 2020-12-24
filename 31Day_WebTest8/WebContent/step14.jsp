@@ -39,9 +39,6 @@
 		<td><%=m.getName() %></td>
 		<td><%=m.getEmail() %></td>
 	</tr>
-
-
 </table>
-
 </body>
 </html>
