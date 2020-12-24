@@ -78,8 +78,46 @@ public class ProductDao {
 		return list;
 	}
 	
-	// 제품 업데이트
-//	public void productUpdate(Product vo) {
-//		
-//	}
+	// 검색
+	public Product getFindProductList(String pname) {
+		con();
+		Product list = null;
+		
+		try {
+			String sql = "select * from p_Product where pname = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pname);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				list = new Product(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			discon();
+		}
+		return list;
+	}
+	
+	
+	//제품 업데이트
+	public void productUpdate(Product vo) {
+		con();
+		
+		try {
+			String sql = "update p_product set pname = ?, pmaker = ?, pprice = ?, pdetail = ? where pno = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getPname());
+			pstmt.setString(2, vo.getPmaker());
+			pstmt.setString(3, vo.getPprice());
+			pstmt.setString(4, vo.getPdetail());
+			pstmt.setInt(5, vo.getPno());
+			int result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			discon();
+		}
+	}
 }

@@ -3,8 +3,30 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+
+<script>
+function idCheck() {
+	var idTxt = document.MemberForm.membership
+	
+	id (idTxt.value == "") {
+		alert('아이디를 입력하세요')
+		idTxt.value = ""
+		idTxt.focus()
+		return false
+	}
+}
+</script>
 </head>
 <body>
+
+<form method="get" name="MemberForm" action="FindServlet"
+onsubmit="return idCheck()">
+id 검색 :
+<input type="text" name="membership">
+<input type="submit" value="검색">
+</form>
+
+
 
 </body>
 </html>
